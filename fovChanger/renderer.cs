@@ -22,7 +22,7 @@ namespace fovChanger
             if (ImGui.Button("Click Me")) // Creating button
             {
                 btnClicked = true;
-                labelTimer = 5.0f; // Set timer to 5 seconds
+                labelTimer = 3.0f; // Set timer to 3 seconds
             }
 
             if (btnClicked) // Handling creation of label

@@ -554,9 +554,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\petri\\Desktop\\swedz_cs\\fovChanger\\fovChanger\\fovChanger.csproj",
-      "projectName": "fovChanger",
-      "projectPath": "C:\\Users\\petri\\Desktop\\swedz_cs\\fovChanger\\fovChanger\\fovChanger.csproj",
+      "projectUniqueName": "C:\\Users\\petri\\Desktop\\swedz_cs\\fovChanger\\fovChanger\\project1.csproj",
+      "projectName": "project1",
+      "projectPath": "C:\\Users\\petri\\Desktop\\swedz_cs\\fovChanger\\fovChanger\\project1.csproj",
       "packagesPath": "C:\\Users\\petri\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\petri\\Desktop\\swedz_cs\\fovChanger\\fovChanger\\obj\\",
       "projectStyle": "PackageReference",

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "IVd8m/HSb7A=",
+  "dgSpecHash": "7K5R72LTqc8=",
   "success": true,
-  "projectFilePath": "C:\\Users\\petri\\Desktop\\swedz_cs\\fovChanger\\fovChanger\\fovChanger.csproj",
+  "projectFilePath": "C:\\Users\\petri\\Desktop\\swedz_cs\\fovChanger\\fovChanger\\project1.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\petri\\.nuget\\packages\\clickabletransparentoverlay\\9.1.0\\clickabletransparentoverlay.9.1.0.nupkg.sha512",
     "C:\\Users\\petri\\.nuget\\packages\\imgui.net\\1.90.0.1\\imgui.net.1.90.0.1.nupkg.sha512",
