@@ -12,7 +12,8 @@ namespace fovChanger
 {
     public class Renderer : Overlay
     {
-        private bool guiShown = true;
+        private bool guiShown = true; // GUI - SHOWN
+        private DateTime guiTime = DateTime.Now; // GUI - TIME
         private float sliderFloatVal = 0; // Class-level field
         private bool btnClicked = false;
         private float labelTimer = 0.0f; // Timer to control label display duration
@@ -24,15 +25,15 @@ namespace fovChanger
                 ImGui.Begin("Menu");
                 ImGui.SetCursorPos(new Vector2(ImGui.GetWindowWidth() -75, 20));
                 if (ImGui.Button("exit"))
-                    {
-                        Environment.Exit(0);
-                    }
-                ImGui.Text("helloo");
+                    {Environment.Exit(0);}
+                ImGui.Text("Entity colors:");
+                ImGui.ColorButton("Friendly players",new Vector4(0.0f, 0.0f, 1.0f, 1.0f)); // friendly
+                ImGui.ColorButton("Enemy players", new Vector4(1.0f, 0.0f, 0.0f, 1.0f)); // enemy
+                ImGui.ColorButton("Whitelisted players", new Vector4(1.0f, 1.0f, 1.0f, 1.0f)); // whitelist
 
                 if (ImGui.Button("Click Me")) // Creating button
                 {
-                    btnClicked = true;
-                    labelTimer = 3.0f; // Set timer to 3 seconds
+                    Console.WriteLine($"[{guiTime}] Button \"Click Me\" clicked..");
                 }
 
                 if (ImGui.IsItemHovered())
@@ -49,3 +50,7 @@ namespace fovChanger
     }
 }
 
+//todo: create saving options into %TEMP%
+// saving into choosen location
+//saving logs fron console
+// and loggin it all into console
