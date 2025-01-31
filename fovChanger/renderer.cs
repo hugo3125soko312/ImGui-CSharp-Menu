@@ -8,24 +8,49 @@ using System.Threading.Tasks;
 using ClickableTransparentOverlay;
 using ImGuiNET;
 using System.Numerics;
+using System.Runtime.InteropServices;
 namespace fovChanger
 {
     public class Renderer : Overlay
     {
+        [DllImport("user32.dll")]
+        private static extern short GetAsyncKeyState(int vkey); // GetAsyncKeyState
+
+
         private bool guiShown = true; // GUI - SHOWN
         private DateTime guiTime = DateTime.Now; // GUI - TIME
+        private int guiHotkey = 0x2D; // GUI - default hotzkey
+        private int? guiLastPressedKey = null; // GUI - last pressed key
         private float sliderFloatVal = 0; // Class-level field
-        private bool btnClicked = false;
-        private float labelTimer = 0.0f; // Timer to control label display duration
+        private bool hotkeyChanging = false;
+        private string hotkeyString = "change hotkey";
 
         protected override void Render()
         {
-            if (guiShown)
+            if (GetAsyncKeyState(0x2D)<0)
+            {
+                guiShown = !guiShown;
+                Thread.Sleep(100);
+            }
+            if (guiShown && hotkeyChanging == false)
             {
                 ImGui.Begin("Menu");
                 ImGui.SetCursorPos(new Vector2(ImGui.GetWindowWidth() -75, 20));
                 if (ImGui.Button("exit"))
-                    {Environment.Exit(0);}
+                {
+                    Environment.Exit(0);
+                }
+                if (ImGui.Button(hotkeyString))
+                {
+                    hotkeyChanging = true;
+                    hotkeyString = "waiting for input";
+                    // after press with user32.dll
+                    /*GetAsyncKeyState();                
+                    hotkeyString = $"hotkey: {vkey}";*/
+
+
+
+                }
                 ImGui.Text("Entity colors:");
                 ImGui.ColorButton("Friendly players",new Vector4(0.0f, 0.0f, 1.0f, 1.0f)); // friendly
                 ImGui.ColorButton("Enemy players", new Vector4(1.0f, 0.0f, 0.0f, 1.0f)); // enemy
@@ -49,8 +74,8 @@ namespace fovChanger
         }
     }
 }
-
-//todo: create saving options into %TEMP%
+// todo: hide/show keybind
+// todo: create saving options into %TEMP%
 // saving into choosen location
 //saving logs fron console
 // and loggin it all into console
