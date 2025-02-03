@@ -30,7 +30,7 @@ namespace fovChanger
             if (GetAsyncKeyState(guiHotkey)<0)
             {
                 guiShown = !guiShown;
-                Thread.Sleep(100);
+                Thread.Sleep(300);
             }
             if (guiShown)
             {
